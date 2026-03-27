@@ -1,9 +1,11 @@
 type Query {
     order(id: Int!): Order
+    inventoryItem(id: String!): InventoryItem
 }
 
 type Mutation {
     createOrder(input: OrderInput!): CreateOrderResponse!
+    addInventoryItem(input: InventoryItemInput!): InventoryResponse!
 }
 
 type Order {
@@ -26,4 +28,27 @@ type CreateOrderResponse {
     status: Int!
     message: String!
     order: Order!
+}
+
+type InventoryItem {
+    id: String!
+    name: String!
+    category: String!
+    quantity: Int!
+    unit: String!
+    reorderThreshold: Int!
+}
+
+input InventoryItemInput {
+    id: String!
+    name: String!
+    category: String!
+    quantity: Int!
+    unit: String!
+    reorderThreshold: Int!
+}
+
+type InventoryResponse {
+    success: Boolean!
+    message: String!
 }

@@ -12,4 +12,9 @@ class WebClientConfig {
     fun orderServiceWebClient(
         @Value("\${order-service.base-url}") baseUrl: String
     ): WebClient = WebClient.builder().baseUrl(baseUrl).build()
+
+    @Bean
+    fun inventoryServiceWebClient(
+        @Value("\${inventory-service.base-url}") baseUrl: String
+    ): WebClient = WebClient.builder().baseUrl(baseUrl).build()
 }
